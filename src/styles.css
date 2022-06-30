@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 .image-size {
     width: 50vw
 }
@@ -10,8 +11,9 @@
     padding: 30px;
 }
 .image-info{
-    text-align: left;
-    color: grey;
+    display: flex;
+    justify-content: left;
+    left: 0xp;
 }
 .image-description{
     text-align: left;
