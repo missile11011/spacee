@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+.image-size {
+    width: 50vw
+}
+.image-card{
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+    width: 50vw;
+    padding: 30px;
+}
+.image-info{
+    text-align: left;
+    color: grey;
+}
+.image-description{
+    text-align: left;
+    text-indent: 3em;
+    font-size: 1.2rem;
+}
