@@ -311,10 +311,10 @@
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
   </div>
-  <img class="image-size" alt="ima" [src]="image.url"/>
-  <p class="image-info">Copyright: {{image.copyright}}</p>
-  
-  <p class="image-description" *ngIf="image"> {{ image.explanation }}</p>
+  <p *ngIf="errorMessage !== undefined" class="error-message">{{errorMessage}}</p>
+  <img *ngIf="errorMessage === undefined" class="image-size" alt="ima" [src]="image.url"/>
+  <p *ngIf="errorMessage === undefined" class="image-info">Copyright: {{image.copyright}}</p>
+  <p *ngIf="errorMessage === undefined" class="image-description"> {{ image.explanation }}</p>
 </div>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->

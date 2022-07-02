@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import * as moment from 'moment';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -19,14 +20,24 @@ export class AppComponent implements OnInit{
 
   image!: any;
   dateFormat!: any;
+  errorMessage!: any;
   constructor(private http: HttpClient) {} 
 
   getImage(date:any) {
-    let datea = moment(date)
-    let dateFormat = datea.format("YYYY-MM-DD")
+    let setdate = moment(date)
+    let dateFormat = setdate.format("YYYY-MM-DD")
+    console.log(this.errorMessage)
     this.http.get<any>(this.URL+"&date="+dateFormat).subscribe(data => {
-        this.image = data
+      this.image = data;
+        console.log(data)
+        
+    }, (err: HttpErrorResponse) => {
+      if (err.error) {
+        console.log('An error occurred:', err.error);
+        this. errorMessage = "There is not an Astronomy Picture of the Day for this date. Please select another date."
+      }
     })
+    
     return this.image, dateFormat
   }
 
